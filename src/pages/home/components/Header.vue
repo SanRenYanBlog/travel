@@ -7,23 +7,25 @@
       <span class="iconfont icon-icon-test12"></span>
       <input type="text" placeholder="请输入你想去的城市..." />
     </div>
-    <div class="header-right">
-      <!-- <i v-show="cities">{{cities.A[2].name}}</i> -->
-      <i>马来西亚</i>
-      <span class="iconfont icon-icon-test30"></span>
-    </div>
+    <router-link to="/city">
+      <div class="header-right">
+        <!-- <i v-show="cities">{{cities.A[2].name}}</i> -->
+        <i>马来西亚</i>
+        <span class="iconfont icon-icon-test30"></span>
+      </div>
+    </router-link>
   </div>
 </template>
 
 <script>
 export default {
   name: "HomeHeader",
-  props:['cities'],
-  mounted(){
+  props: ["cities"],
+  mounted() {
     // setTimeout(()=>{
-      // console.log(this.cities);
+    // console.log(this.cities);
     // },1000)
-  }
+  },
 };
 </script>
 
@@ -74,14 +76,17 @@ export default {
       float: right;
       font-size: 0.4rem;
       right: 0.1rem;
-      top: 0;
-      
+      top: 0.02rem;
+      color: #fff;
     }
-    i{
+    i {
       float: right;
       // display: block;
+      margin-top: 0.02rem;
+      margin-bottom: -0.02rem;
       margin-right: 0.4rem;
       margin-left: 0.1rem;
+      color: #fff;
     }
   }
 }
