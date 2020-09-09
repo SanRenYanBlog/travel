@@ -8,7 +8,8 @@
       <input type="text" placeholder="请输入你想去的城市..." />
     </div>
     <div class="header-right">
-      <i>城市</i>
+      <!-- <i v-show="cities">{{cities.A[2].name}}</i> -->
+      <i>马来西亚</i>
       <span class="iconfont icon-icon-test30"></span>
     </div>
   </div>
@@ -17,6 +18,12 @@
 <script>
 export default {
   name: "HomeHeader",
+  props:['cities'],
+  mounted(){
+    // setTimeout(()=>{
+      // console.log(this.cities);
+    // },1000)
+  }
 };
 </script>
 
@@ -56,14 +63,25 @@ export default {
     }
   }
   .header-right {
-    width: 1.24rem;
+    // width: 2rem;
+    overflow: hidden;
     float: right;
     text-align: center;
-    position: relative;
     padding-right: 0.06rem;
+    position: relative;
     span {
-      font-size: 0.3rem;
+      // position: absolute;
+      float: right;
+      font-size: 0.4rem;
       right: 0.1rem;
+      top: 0;
+      
+    }
+    i{
+      float: right;
+      // display: block;
+      margin-right: 0.4rem;
+      margin-left: 0.1rem;
     }
   }
 }

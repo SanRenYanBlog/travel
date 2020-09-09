@@ -12,6 +12,7 @@
 <script>
 export default {
   name: "HomeSwoper",
+  props:['swiperList'],
   data() {
     return {
       swiperOptions: {
@@ -19,16 +20,16 @@ export default {
         loop: true,
         autoplay: 3000,
       },
-      swiperList: [
-        {
-          id: "0001",
-          imgUrl: "../../../../static/img/swiper01.jpeg",
-        },
-        {
-          id: "0002",
-          imgUrl: "../../../../static/img/swiper02.jpeg",
-        },
-      ],
+      // swiperList: [
+      //   {
+      //     id: "0001",
+      //     imgUrl: "../../../../static/img/swiper01.jpeg",
+      //   },
+      //   {
+      //     id: "0002",
+      //     imgUrl: "../../../../static/img/swiper02.jpeg",
+      //   },
+      // ],
     };
   },
 };

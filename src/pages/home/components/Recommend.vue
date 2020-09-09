@@ -2,10 +2,10 @@
   <div class="recommend">
     <div class="recommend-title">热销推荐</div>
     <div class="recommend-content">
-      <div class="content-wrap" v-for="item in recommentList" :key="item.id">
+      <div class="content-wrap" v-for="item in recommendList" :key="item.id">
         <img :src="item.imgUrl" alt />
         <p class="scenic-mask">1</p>
-        <p class="scenic">{{item.scenic}}</p>
+        <p class="scenic">{{item.title}}</p>
         <p class="desc">{{item.desc}}</p>
       </div>
     </div>
@@ -15,40 +15,15 @@
 <script>
 export default {
   name: "HomeRecommend",
+  props:["recommendList"],
   data() {
     return {
-      recommentList: [
-        {
-          id: "01",
-          imgUrl:
-            "http://imgs.qunarzz.com/p/p48/201302/28/bc44faa497db0dcf93835fbb.jpg_256x160_0ba13461.jpg",
-          desc: "包含往返飞日游泰国一日日游泰国一日机票",
-          scenic: "泰国一日游泰国一日游泰国一日游",
-        },
-        {
-          id: "02",
-          imgUrl:
-            "http:////imgs.qunarzz.com/p/p90/201308/23/5ce590745204c90193835fbb.jpg_256x160_04bdc5bd.jpg",
-          desc: "包含往返飞日游泰国一日日游泰国一日机票",
-          scenic: "泰国一日游泰国一日游泰国一日游",
-        },
-        {
-          id: "03",
-          imgUrl:
-            "http://imgs.qunarzz.com/p/p48/201302/28/bc44faa497db0dcf93835fbb.jpg_256x160_0ba13461.jpg",
-          desc: "包含往返飞日游泰国一日日游泰国一日机票",
-          scenic: "泰国一日游泰国一日游泰国一日游",
-        },
-        {
-          id: "04",
-          imgUrl:
-            "http://imgs.qunarzz.com/p/p48/201302/28/bc44faa497db0dcf93835fbb.jpg_256x160_0ba13461.jpg",
-          desc: "包含往返飞日游泰国一日日游泰国一日机票",
-          scenic: "泰国一日游泰国一日游泰国一日游",
-        },
-      ],
+
     };
   },
+  mounted(){
+    console.log(this.recommendList);
+  }
 };
 </script>
 

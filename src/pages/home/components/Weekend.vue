@@ -5,7 +5,7 @@
       <div class="content-wrap" v-for="item in weekendList" :key="item.id">
         <img :src="item.imgUrl" alt />
         <p class="scenic-mask">1</p>
-        <p class="scenic">{{item.scenic}}</p>
+        <p class="scenic">{{item.title}}</p>
         <p class="desc">{{item.desc}}</p>
       </div>
     </div>
@@ -15,38 +15,9 @@
 <script>
 export default {
   name: "HomeWeekend",
+  props: ["weekendList"],
   data() {
     return {
-      weekendList: [
-        {
-          id: "01",
-          imgUrl:
-            "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1599649479575&di=23a90e41f10db88946826a44766ae52c&imgtype=0&src=http%3A%2F%2Fgss0.baidu.com%2F9vo3dSag_xI4khGko9WTAnF6hhy%2Fzhidao%2Fpic%2Fitem%2F728da9773912b31b5184d08b8618367adbb4e1ac.jpg",
-          desc: "包含往返飞日游泰国一游泰国一游泰国一游泰国一日日游泰国一日机票",
-          scenic: "泰国一日游游泰国一游泰国一游泰国一游泰国一游泰国一游泰国一日游泰国一日游",
-        },
-        {
-          id: "02",
-          imgUrl:
-            "http:////imgs.qunarzz.com/p/p90/201308/23/5ce590745204c90193835fbb.jpg_256x160_04bdc5bd.jpg",
-          desc: "包含往返飞日游泰国一日日游泰国一日机票",
-          scenic: "泰国一日游泰国一日游泰国一日游",
-        },
-        {
-          id: "03",
-          imgUrl:
-            "http://imgs.qunarzz.com/p/p48/201302/28/bc44faa497db0dcf93835fbb.jpg_256x160_0ba13461.jpg",
-          desc: "包含往返飞日游泰国一日日游泰国一日机票",
-          scenic: "泰国一日游泰国一日游泰国一日游",
-        },
-        {
-          id: "04",
-          imgUrl:
-            "http://imgs.qunarzz.com/p/p48/201302/28/bc44faa497db0dcf93835fbb.jpg_256x160_0ba13461.jpg",
-          desc: "包含往返飞日游泰国一日日游泰国一日机票",
-          scenic: "泰国一日游泰国一日游泰国一日游",
-        },
-      ],
     };
   },
 };
