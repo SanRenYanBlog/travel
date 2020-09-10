@@ -5,7 +5,12 @@
     </div>
     <div class="search-content" v-show="list.length>0" ref="wrapper">
       <ul class="list">
-        <li v-for="item in list" :key="item.id" class="list-item border-bottom">{{item.name}}</li>
+        <li
+          v-for="item in list"
+          :key="item.id"
+          class="list-item border-bottom"
+          @click="handerChangeCity(item.name)"
+        >{{item.name}}</li>
         <!-- <li v-show="(keyword!==''&&list.length===0)" class="list-item border-bottom">未找到</li> -->
       </ul>
     </div>
@@ -14,10 +19,19 @@
 
 <script>
 import Bscroll from "better-scroll";
+import { mapMutations } from "vuex"
 export default {
   name: "CitySearch",
   props: {
     cities: Object,
+  },
+  methods: {
+    handerChangeCity(newCity) {
+      // this.$store.commit("changeCity", newCity);
+      this.changeCity(newCity);
+      this.$router.push("/");
+    },
+    ...mapMutations(['changeCity'])
   },
   updated() {
     this.scroll = new Bscroll(this.$refs.wrapper);
@@ -47,12 +61,12 @@ export default {
             }
           });
         }
-        console.log(result);
-        if(result.length == 0 && this.keyword){
+        // console.log(result);
+        if (result.length == 0 && this.keyword) {
           result.push({
-            id:-1,
-            name:"未查询到该关键字",
-            speel:""
+            id: -1,
+            name: "未查询到该关键字",
+            speel: "",
           });
           console.log(result);
         }

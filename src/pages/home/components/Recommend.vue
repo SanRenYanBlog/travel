@@ -22,7 +22,7 @@ export default {
     };
   },
   mounted(){
-    console.log(this.recommendList);
+    // console.log(this.recommendList);
   }
 };
 </script>

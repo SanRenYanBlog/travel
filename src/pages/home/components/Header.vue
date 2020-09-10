@@ -10,7 +10,7 @@
     <router-link to="/city">
       <div class="header-right">
         <!-- <i v-show="cities">{{cities.A[2].name}}</i> -->
-        <i>马来西亚</i>
+        <i>{{city}}</i>
         <span class="iconfont icon-icon-test30"></span>
       </div>
     </router-link>
@@ -18,14 +18,18 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: "HomeHeader",
-  props: ["cities"],
+  // props: ["cities"],
   mounted() {
     // setTimeout(()=>{
     // console.log(this.cities);
     // },1000)
   },
+  computed: {
+    ...mapState(['city'])
+  }
 };
 </script>
 
