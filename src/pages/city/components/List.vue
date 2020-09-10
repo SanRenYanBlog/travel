@@ -40,10 +40,11 @@ export default {
     hot: Array,
     cities: Object,
   },
-  mounted() {
-    this.$nextTick(function () {
-      window.addEventListener('scroll', this.onScroll)
-    })
+  updated() {
+    // this.$nextTick(() => {
+          this.scroll = new Bscroll(this.$refs.wrapper);
+        // });
+
 
     // this.$watch('this.hot',()=>{
     //   this.scroll = new Bscroll(this.$refs.wrapper);
