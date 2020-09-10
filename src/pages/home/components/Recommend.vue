@@ -2,12 +2,23 @@
   <div class="recommend">
     <div class="recommend-title">热销推荐</div>
     <div class="recommend-content">
-      <div class="content-wrap" v-for="item in recommendList" :key="item.id">
+      <!-- <div class="content-wrap" 
+        v-for="item in recommendList" 
+        :key="item.id"
+      > -->
+      <router-link 
+        tag="div"
+        class="content-wrap"
+        v-for="item in recommendList" 
+        :key="item.id"
+        :to="'./detail/' + item.id "
+      >
         <img :src="item.imgUrl" alt />
-        <p class="scenic-mask">1</p>
+        <p class="scenic-mask">.</p>
         <p class="scenic">{{item.title}}</p>
         <p class="desc">{{item.desc}}</p>
-      </div>
+      </router-link>
+      <!-- </div> -->
     </div>
   </div>
 </template>
@@ -73,6 +84,7 @@ export default {
         width: 90%;
         top: 1.6rem;
         text-align: center;
+        color: transparent;
         background-color: rgba($color: #000000, $alpha: 0.5);
       }
       .desc {
