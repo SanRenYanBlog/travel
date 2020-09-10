@@ -17,7 +17,7 @@
       </div>
       <div class="area">
         <div v-for="(item,key) in cities" :key="key">
-          <div class="title border-topbottom">{{key}}</div>
+          <div class="title border-topbottom" :ref="key">{{key}}</div>
           <div class="item-list">
             <div
               class="item border-bottom"
@@ -39,12 +39,12 @@ export default {
   props: {
     hot: Array,
     cities: Object,
+    letter: String,
   },
   updated() {
     // this.$nextTick(() => {
-          this.scroll = new Bscroll(this.$refs.wrapper);
-        // });
-
+    this.scroll = new Bscroll(this.$refs.wrapper);
+    // });
 
     // this.$watch('this.hot',()=>{
     //   this.scroll = new Bscroll(this.$refs.wrapper);
@@ -56,15 +56,14 @@ export default {
     // }, 1000);
     // this.scroll.refresh();
   },
-  // watch: {
-  //   // 如果 `question` 发生改变，这个函数就会运行
-  //   hot: function (newQuestion, oldQuestion) {
-  //     console.log(this.$refs);
-  //      this.scroll = new Bscroll(this.$refs.wrapper);
-  //      console.log(newQuestion,oldQuestion);
-  //   }
-  // }
-  
+  watch: {
+    letter() {
+      if(this.letter) {
+        const element = this.$refs[this.letter][0]
+        this.scroll.scrollToElement(element)
+      }
+    },
+  },
 };
 </script>
 
