@@ -2,7 +2,8 @@
   <div class="header">
     <router-link to="/">
       <span class="iconfont icon-icon-test29 heder-back"></span>
-    </router-link>城市选择
+    </router-link>
+    <div>城市选择</div>
   </div>
 </template>
 

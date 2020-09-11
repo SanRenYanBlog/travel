@@ -1,26 +1,40 @@
 <template>
   <div>
     <div class="banner" @click="handlerBannerClick">
-      <img
-        class="banner-img"
-        src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1599747033868&di=4501c3a3b621d52d1d1675a241fe170e&imgtype=0&src=http%3A%2F%2Fimg3.imgtn.bdimg.com%2Fit%2Fu%3D3207397593%2C265155905%26fm%3D214%26gp%3D0.jpg"
-        alt
-      />
+      <img class="banner-img" :src="bannerImg" alt />
       <div class="banner-info">
         <div class="banner-title">深圳西部硅谷</div>
         <div class="banner-number">
-          <span class="iconfont icon-icon-test19 inco"></span>12
+          <span class="iconfont icon-icon-test19 inco"></span>
+          {{gallaryImgs.length}}
         </div>
       </div>
     </div>
-    <common-gallary :imgs="imgs" v-if="showGallary" @closeGallary="handlerCloseGallary"></common-gallary>
+    <fade-animation>
+      <common-gallary :imgs="imgs" :gallaryImgs="gallaryImgs" v-if="showGallary" @closeGallary="handlerCloseGallary"></common-gallary>
+    </fade-animation>
   </div>
 </template>
 
 <script>
 import CommonGallary from "common/gallary/Gallary";
+import FadeAnimation from "common/fade/FadeAnimation";
 export default {
   neme: "DetailBanner",
+  props: {
+    sightName: String,
+    bannerImg: String,
+    gallaryImgs: Array,
+  },
+  components: {
+    CommonGallary,
+    FadeAnimation,
+  },
+  updated() {
+    console.log(this.sightName);
+    console.log(this.bannerImg);
+    console.log(this.gallaryImgs);
+  },
   data() {
     return {
       imgs: [
@@ -30,17 +44,15 @@ export default {
       showGallary: false,
     };
   },
-  components: {
-    CommonGallary,
-  },
-  methods:{
-    handlerBannerClick(){
+
+  methods: {
+    handlerBannerClick() {
       this.showGallary = true;
     },
-    handlerCloseGallary(){
+    handlerCloseGallary() {
       this.showGallary = false;
-    }
-  }
+    },
+  },
 };
 </script>
 

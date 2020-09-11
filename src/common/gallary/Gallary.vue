@@ -2,12 +2,8 @@
   <div class="container" @click="handlerGallaryClick">
     <div class="wrapper">
       <swiper :options="swiperOptions">
-        <swiper-slide v-for="(item,index) in imgs" :key="index">
-          <img
-            class="gallary-img"
-            :src="item"
-            alt
-          />
+        <swiper-slide v-for="(item,index) in gallaryImgs" :key="index">
+          <img class="gallary-img" :src="item" alt />
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
@@ -19,13 +15,15 @@
 export default {
   name: "CommonGallary",
   props: {
-      imgs: {
-          type : Array,
-          default () {
-              return ['https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1599748816403&di=6985b6aabed7338d4a9ca8ac69c9165a&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201703%2F31%2F20170331090953_zUcaS.jpeg',
-              'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1599748816403&di=6985b6aabed7338d4a9ca8ac69c9165a&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201703%2F31%2F20170331090953_zUcaS.jpeg']
-          }
+    gallaryImgs: {
+      type: Array,
+      default() {
+        return [
+          "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1599748816403&di=6985b6aabed7338d4a9ca8ac69c9165a&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201703%2F31%2F20170331090953_zUcaS.jpeg",
+          "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1599748816403&di=6985b6aabed7338d4a9ca8ac69c9165a&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201703%2F31%2F20170331090953_zUcaS.jpeg",
+        ];
       },
+    },
   },
   data() {
     return {
@@ -33,15 +31,15 @@ export default {
         pagination: ".swiper-pagination",
         paginationType: "fraction",
         observeParents: true,
-        observer: true
+        observer: true,
       },
     };
   },
-  methods:{
-      handlerGallaryClick(){
-          this.$emit('closeGallary')
-      }
-  }
+  methods: {
+    handlerGallaryClick() {
+      this.$emit("closeGallary");
+    },
+  },
 };
 </script>
 

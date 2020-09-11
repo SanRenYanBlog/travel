@@ -33,14 +33,14 @@
           </div>
         </div>
       </div>
-      <!-- <div class="add"></div> -->
+      <div class="add"></div>
     </div>
   </div>
 </template>
 
 <script>
 import Bscroll from "better-scroll";
-import { mapState,mapMutations } from 'vuex';
+import { mapState, mapMutations } from "vuex";
 export default {
   name: "CityList",
   props: {
@@ -54,13 +54,19 @@ export default {
       this.changeCity(newCity);
       this.$router.push("/");
     },
-    ...mapMutations(['changeCity'])
+    ...mapMutations(["changeCity"]),
   },
   updated() {
-    this.scroll = new Bscroll(this.$refs.wrapper);
+    // this.scroll = new Bscroll(this.$refs.wrapper);
+    this.$nextTick(() => {
+      if (!this.scroll) {
+        this.scroll = new Bscroll(this.$refs.wrapper, {});
+        console.log(this.scroll);
+      }
+    });
   },
   computed: {
-    ...mapState(['city'])
+    ...mapState(["city"]),
   },
   watch: {
     letter() {
@@ -74,6 +80,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.add {
+  height: 30rem;
+}
 .list {
   overflow: hidden;
   width: 100%;
